@@ -1,0 +1,502 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* variables de estilos */
+
+:root{
+    /* variable de tipo de fuente */
+    --tipo-fuente: 'poppins';
+
+    /* variables para el estilo del tamaño de fuente y grosor de titulo */
+    --tamaño-fuente-titulo-movil: 32px;
+    --tamaño-fuente-titulo-escritorio: 48px;
+    --grosor-titulo: 700;
+    --altura-linea-titulo: 1.2;
+
+    /* variables para el estilo del tamaño de fuente y grosor de subtitulo */
+    --tamaño-fuente-subtitulo-movil: 18px;
+    --tamaño-fuente-subtitulo-escritorio: 20px;
+    --grosor-subtitulo: 500;
+    --altura-linea-subtitulo: 1.5;
+
+    /* variables para el estilo del tamaño de fuente y grosor de texto */
+    --tamaño-fuente-texto-movil: 16px;
+    --tamaño-fuente-texto-escritorio: 18px;
+    --grosor-texto: 400;
+    --altura-linea-texto: 1.6;
+
+    /* Variables para subtitulos de etiquetas como h3, h4, h5, etc */
+    --tamaño-fuente-subtitulo-h3-movil: 16px;
+    --tamaño-fuente-subtitulo-h3-escritorio: 19px;
+    --grosor-subtitulo-h3: 400;
+
+    /* colores generales del header, el body y parrafos */
+    --color-header: black;
+    --color-body: #121212;
+    --color-general: white;
+}
+
+/* estilos basico para el scroll del html */
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* estilos del body */
+
+body{
+    background-color: var(--color-body);
+    overflow-x: hidden;
+    width: 100%;
+    font-family: var(--tipo-fuente), sans-serif;
+}
+
+/* Primero estilos para dispositivos moviles */
+
+/* estilos del encabezado/header */
+
+header{
+    background-color: var(--color-header);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 25px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-pag, .icon-burguer{
+    font-size: var(--tamaño-fuente-titulo-movil);
+    position: relative;
+    z-index: 3;
+}
+
+/* estilos para el menu hamburguesa, nav, etc */
+
+#menu{
+    display: none;
+}
+
+.navbar{
+    height: 100dvh;
+    width: 100%;
+    
+    visibility: hidden;
+    opacity: 0;
+
+    position: fixed;
+    z-index: 2;
+    left: 100%;
+    top: 0;
+    background-color: black;
+    transition: all 0.3s ease;
+}
+
+.ul_navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.li_navbar{
+    list-style: none;
+}
+
+.li_navbar a{
+    color: var(--color-general);
+    text-transform: uppercase;
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 6px;
+    transition: all .3s;
+}
+
+.li_navbar a:hover{
+    background-color: white;
+    color: black;
+}
+
+#menu:checked ~ .navbar{
+    visibility: visible;
+    opacity: 1;
+    left: 0;
+}
+
+/* Estilos del contenido principal / main */
+
+/* estilos de seccion hero */
+
+#hero{
+    text-align: center;
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#titulo_principal{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-titulo-movil);
+    font-weight: var(--grosor-titulo);
+    line-height: var(--altura-linea-titulo);
+}
+
+.descripcion_hero{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+    line-height: var(--altura-linea-texto);
+    padding-top: 10px;
+}
+
+.btn-hero{
+    padding-top: 70px;
+}
+
+.btn-empezar{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: var(--tamaño-fuente-subtitulo-movil);
+    font-weight: var(--grosor-subtitulo);
+    background-color: var(--color-general);
+    padding: 10px;
+    border-radius: 7px;
+    transition: background-color .3s;
+}
+
+.btn-empezar:hover{
+    background-color: grey;
+}
+
+/* estilos seccion servicios */
+
+#servicios{
+    width: 100%;
+    padding: 20px;
+}
+
+#subtitulo_servicio{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-movil);
+    font-weight: var(--grosor-subtitulo);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+.subtitulo_productos_programas{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-h3-movil);
+    font-weight: var(--grosor-subtitulo-h3);
+    text-transform: uppercase;
+    padding: 30px 0;
+}
+
+/* estilos de las tarjetas */
+
+.tarjetas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    place-items: center;
+}
+
+.card{
+    width: 90%;
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.imagen_programa img, .imagen_producto img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-content h3{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-h3-movil);
+    font-weight: var(--grosor-subtitulo-h3);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-content{
+    color: var(--color-general);
+    display: flex;
+    grid-auto-rows: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px;
+}
+
+.btn-compra{
+    background-color: transparent;
+    font-size: var(--tamaño-fuente-texto-movil);
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid white;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    transition: all .3s;
+}
+
+.btn-compra::before{
+    content: '';
+    background-color: var(--color-general);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: all .3s;
+}
+
+.btn-compra:hover::before {
+    left: 0;
+}
+
+.btn-compra:hover{
+    color: black;
+    cursor: pointer;
+}
+
+/* estilos seccion productos */
+
+#productos{
+    padding: 20px;
+}
+
+/* estilos seccion de servicios personalizados */
+
+#servicios_personalizados{
+    padding: 20px;
+}
+
+#servicios_personalizados h3{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-h3-movil);
+    font-weight: var(--grosor-subtitulo-h3);
+    text-transform: uppercase;
+}
+
+.planes .plan p{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+    padding: 20px 0;
+}
+
+/* estilos de seccion de beneficios */
+
+
+#beneficios{
+    padding: 20px;
+}
+
+#beneficios h3{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-h3-movil);
+    font-weight: var(--grosor-subtitulo-h3);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#beneficios ul li{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+}
+
+/* estilos de seccion de contacto */
+
+#contacto{
+    width: 100%;
+    padding: 20px 20px;
+}
+
+#contacto h3{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-subtitulo-h3-movil);
+    font-weight: var(--grosor-subtitulo-h3);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+#contacto .formulario{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.formulario fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 10px;
+}
+
+legend{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+}
+
+label{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+}
+
+input{
+    color: black;
+    padding: 8px 2px;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+}
+
+.btn-form{
+    background-color: transparent;
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid var(--color-general);
+    z-index: 1;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.btn-form::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: white;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
+}
+
+.btn-form:hover::before{
+    left: 0;
+}
+
+.btn-form:hover{
+    color: black;
+}
+
+/* estilos del footer/pie de página */
+
+footer{
+    background-color: black;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p{
+    color: var(--color-general);
+    font-size: var(--tamaño-fuente-texto-movil);
+    font-weight: var(--grosor-texto);
+}
+
+footer p a{
+    color: var(--color-general);
+    text-decoration: none;
+    transition: all .3s;
+}
+
+footer p a:hover{
+    color: blue;
+}
+
+/* estilo responsivo para dispositivos de escritorio */
+
+@media (min-width:1024px) {
+    .icon-burguer{
+        display: none;
+    }
+
+    .navbar{
+        visibility: visible;
+        opacity: 1;
+        left: 0;
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transition: none;
+    }
+
+    .ul_navbar{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 40px;
+        padding: 0;
+    }
+
+    .li_navbar a{
+        color: white;
+        font-size: var(--tamaño-fuente-subtitulo-escritorio);
+        font-weight: var(--grosor-subtitulo);
+    }
+
+    #titulo_principal{
+        font-size: var(--tamaño-fuente-titulo-escritorio);
+    }
+
+    .tarjetas{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .subtitulo_productos_programas, .card-content h3, #servicios_personalizados h3, #beneficios h3, #contacto h3{
+        font-size: var(--tamaño-fuente-subtitulo-h3-escritorio);
+    }
+
+    #subtitulo_servicio, .btn-empezar{
+        font-size: var(--tamaño-fuente-subtitulo-escritorio);
+    }
+
+    .btn-compra, .planes .plan p, #beneficios ul li, footer p, legend, .btn-form, label, input{
+        font-size: var(--tamaño-fuente-texto-escritorio);
+    }
+
+    .btn-form{
+        width: 40%;
+    }
+}
+
+
+@media (min-width: 768px) {
+    
+}
